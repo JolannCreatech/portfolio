@@ -1,0 +1,108 @@
+
+.home-introduction .intro-panel {
+  --intro-pad: clamp(1.1rem, 2.6vw, 2.4rem);
+  /* Matches the sheet's inline padding, so the panel runs to the page frame. */
+  --intro-bleed: var(--page-padding);
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 48rem);
+  grid-template-rows: minmax(0, 1fr);
+  grid-template-areas: "art copy";
+  align-items: center;
+  justify-content: center;
+  column-gap: clamp(1.5rem, 3.2vw, 2.8rem);
+  width: calc(100% + 2 * var(--intro-bleed));
+  margin-inline: calc(-1 * var(--intro-bleed));
+  padding: var(--intro-pad);
+  padding-bottom: calc(var(--intro-pad) + 3rem);
+  border: var(--comic-line);
+  background-color: var(--comic-stock-light);
+  background-image: radial-gradient(rgba(33, 20, 14, .12) .8px, transparent 1px);
+  background-size: 7px 7px;
+  box-shadow: var(--comic-print-shadow);
+  filter: none;
+  overflow: hidden;
+}
+/* The drawing sizes the panel height: no fixed frame, the art stands on the floor. */
+.home-introduction .intro-panel__portrait {
+  grid-area: art;
+  position: static;
+  z-index: 1;
+  align-self: end;
+  width: clamp(210px, 29vw, 430px);
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  box-shadow: none;
+  overflow: visible;
+  aspect-ratio: 2310 / 3259;
+}
+.home-introduction .intro-panel__portrait img {
+  position: static;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: contain;
+  object-position: center bottom;
+}
+/* Speech bubble inside the panel, tail pointing at the drawing. */
+.home-introduction .intro-panel__copy {
+  grid-area: copy;
+  position: relative;
+  z-index: 2;
+  align-self: center;
+  justify-self: stretch;
+  width: 100%;
+  max-width: min(100%, 48rem);
+  height: auto;
+  min-height: 0;
+  padding: clamp(1.1rem, 2.2vw, 1.9rem) clamp(1.2rem, 2.4vw, 2rem);
+  border: 4px solid var(--comic-ink);
+  border-radius: 22px;
+  background-color: var(--comic-stock-light);
+  background-image: radial-gradient(rgba(33, 20, 14, .12) .8px, transparent 1px);
+  background-size: 7px 7px;
+  color: var(--comic-ink);
+  box-shadow: none;
+  filter: drop-shadow(4px 4px 0 var(--comic-ink));
+}
+.home-introduction .intro-panel__copy::before,
+.home-introduction .intro-panel__copy::after {
+  top: 30%;
+  left: -20px;
+  right: auto;
+  width: 24px;
+  height: 34px;
+  clip-path: polygon(100% 0, 100% 100%, 0 50%);
+}
+.home-introduction .intro-panel__copy::before { background: var(--comic-ink); }
+.home-introduction .intro-panel__copy::after { left: -15px; background: var(--comic-stock-light); }
+.home-introduction .intro-panel__copy h2 { color: var(--comic-ink); font-size: clamp(2.4rem, 5vw, 5.6rem); text-shadow: 2px 2px 0 var(--fuchsia); }
+.home-introduction .intro-panel__copy h2 span { color: var(--petrol); }
+.home-introduction .intro-panel__copy p { max-width: none; color: var(--comic-copy); }
+.home-introduction .intro-panel__copy .text-link {
+  border: 3px solid var(--comic-ink);
+  padding: .7rem;
+  background: var(--fuchsia);
+  color: var(--comic-ink);
+  box-shadow: 3px 3px 0 var(--comic-ink);
+}
+.home-introduction .intro-panel__stamp {
+  position: absolute;
+  left: var(--intro-pad);
+  right: auto;
+  bottom: var(--intro-pad);
+  width: max-content;
+  max-width: calc(100% - 2 * var(--intro-pad));
+  padding: .5rem .7rem;
+  border: 2px solid var(--comic-ink);
+  background: var(--fuchsia);
+  color: var(--comic-ink);
+  font: 700 .6rem/1.2 var(--font-mono);
+  letter-spacing: .08em;
+  text-align: center;
+  text-transform: uppercase;
+  box-shadow: 3px 3px 0 var(--comic-ink);
+}
