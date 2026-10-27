@@ -1,0 +1,115 @@
+/* Palette supplied for the portfolio: ink, petrol, leather and fuchsia. */
+:root {
+  color-scheme: dark;
+
+  --near-black: #020303;
+  --petrol: #0b4656;
+  --deep-petrol: #083038;
+  --leather: #21140e;
+  --fuchsia: #eb1b90;
+  --muted-teal: #3d6c76;
+  --plum: var(--near-black);
+  --leather-raised: #321a18;
+  --warm-white: #f5eeec;
+  --muted-white: #c9b7b7;
+
+  /* Existing component names kept as aliases for a shared design system. */
+  --paper: var(--near-black);
+  --paper-light: var(--warm-white);
+  --paper-deep: var(--deep-petrol);
+  --ink: var(--warm-white);
+  --ink-soft: var(--muted-white);
+  --rule: #563642;
+  --red: var(--fuchsia);
+  --red-dark: #ff69b8;
+  --sage: var(--muted-teal);
+  --sage-dark: var(--deep-petrol);
+  --ochre: var(--petrol);
+  --blue-grey: var(--muted-teal);
+  --surface-panel: var(--leather);
+  --surface-raised: var(--leather-raised);
+
+  --colour-base: var(--near-black);
+  --colour-paper: var(--leather);
+  --colour-text: var(--warm-white);
+  --colour-text-muted: var(--muted-white);
+  --colour-text-dim: #a78d90;
+  --colour-border: var(--rule);
+  --colour-focus: var(--fuchsia);
+  --colour-bt: var(--fuchsia);
+  --colour-fg: var(--petrol);
+  --colour-hw: var(--leather);
+  --colour-sw: var(--muted-teal);
+  --colour-ft: var(--deep-petrol);
+
+  --font-display: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  --font-body: Georgia, "Times New Roman", serif;
+  --font-mono: "SFMono-Regular", Consolas, monospace;
+  --font-ui: var(--font-display);
+
+  --fs-xs: .72rem;
+  --fs-sm: .86rem;
+  --fs-base: 1rem;
+  --fs-lg: 1.15rem;
+  --fs-xl: 1.45rem;
+  --fs-2xl: clamp(1.65rem, 2.2vw, 2.25rem);
+  --fs-3xl: clamp(2.15rem, 4vw, 3.6rem);
+  --fs-4xl: clamp(3.1rem, 6vw, 5.8rem);
+  --fs-5xl: clamp(4.3rem, 9vw, 8.5rem);
+  --fs-6xl: clamp(5rem, 12vw, 11rem);
+
+  --leading-tight: .94;
+  --leading-snug: 1.15;
+  --leading-normal: 1.45;
+  --leading-relaxed: 1.65;
+  --tracking-tight: -.035em;
+  --tracking-normal: 0;
+  --tracking-wide: .09em;
+  --tracking-wider: .16em;
+
+  --space-0: 0;
+  --space-1: .25rem;
+  --space-2: .5rem;
+  --space-3: .75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  --page-max-width: 1480px;
+  --page-padding: clamp(1rem, 3vw, 2.75rem);
+  --page-padding-wide: clamp(1rem, 4vw, 3.5rem);
+  --spread-gap: 8px;
+  --panel-gap: 8px;
+  --panel-radius: 0;
+  --panel-shadow: 0 0 0 2px var(--fuchsia);
+
+  --duration-fast: 160ms;
+  --duration-base: 180ms;
+  --duration-slow: 260ms;
+  --duration-page: 200ms;
+  --ease-standard: cubic-bezier(.2, .7, .2, 1);
+  --ease-page: cubic-bezier(.7, 0, .2, 1);
+  --ease-out: cubic-bezier(0, 0, .2, 1);
+
+  --z-base: 1;
+  --z-panel: 10;
+  --z-nav: 100;
+  --z-transition: 1000;
+  --z-cover: 2000;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 1ms;
+    --duration-base: 1ms;
+    --duration-slow: 1ms;
+    --duration-page: 1ms;
+  }
+}
