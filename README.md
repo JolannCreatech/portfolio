@@ -10,7 +10,7 @@ From this folder, run:
 python3 -m http.server 8000
 ```
 
-Open `http://localhost:8000/Website/`.
+Open `http://localhost:8000/`.
 
 The home page is `Website/index.html`; shared styles and interactions are in `Website/styles/` and `Website/scripts/`. Projects have their own `index.html` pages under `Website/projects/`. Use `Website/projects/PROJECT_TEMPLATE.md` when adding a project page.
 

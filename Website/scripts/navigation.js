@@ -11,7 +11,7 @@
 
     let destination;
     try { destination = new URL(link.href, window.location.href); } catch { return; }
-    if (destination.origin !== window.location.origin || !destination.pathname.startsWith('/Website/')) return;
+    if (destination.origin !== window.location.origin || !destination.pathname.startsWith('/')) return;
     if (destination.pathname === window.location.pathname) return;
 
     /* A page turn inside the site never replays the cover: only a reload or a new visit does. */
