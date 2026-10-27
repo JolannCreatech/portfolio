@@ -5,7 +5,7 @@
 
   const navigate = (event) => {
     const link = event.target.closest('a[href]');
-    if (!link || transitioning || reduceMotion.matches) return;
+    if (!link || transitioning) return;
     if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     if ((link.target && link.target !== '_self') || link.hasAttribute('download')) return;
 
@@ -13,6 +13,10 @@
     try { destination = new URL(link.href, window.location.href); } catch { return; }
     if (destination.origin !== window.location.origin || !destination.pathname.startsWith('/Website/')) return;
     if (destination.pathname === window.location.pathname) return;
+
+    /* A page turn inside the site never replays the cover: only a reload or a new visit does. */
+    try { sessionStorage.setItem('portfolio:cover-skip', 'true'); } catch { /* Storage is optional. */ }
+    if (reduceMotion.matches) return;
 
     const main = document.querySelector('main');
     if (!main) return;
@@ -44,6 +48,10 @@
     document.documentElement.classList.remove('no-js');
     document.documentElement.classList.add('js-ready');
     document.addEventListener('click', navigate);
+
+    /* A pending cover flag only concerns the page it navigated to: the home page
+       consumes it in its head, every other page drops it here. */
+    try { sessionStorage.removeItem('portfolio:cover-skip'); } catch { /* Storage is optional. */ }
 
     let intendedArrival = '';
     try {

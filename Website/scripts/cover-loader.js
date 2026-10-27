@@ -3,7 +3,6 @@
   const cover = document.querySelector('.cover');
   const main = document.querySelector('#main');
   if (!cover || !main) return;
-  const coverStateKey = 'portfolio:cover-opened-v2';
 
   const progress = cover.querySelector('[role="progressbar"]');
   const valueLabel = cover.querySelector('[data-loading-value]');
@@ -43,7 +42,6 @@
     cover.classList.add('is-dismissed');
     main.inert = false;
     main.removeAttribute('aria-hidden');
-    try { sessionStorage.setItem(coverStateKey, 'true'); } catch { /* Storage is optional. */ }
     if (moveFocus) main.focus({ preventScroll: true });
   };
 
@@ -73,12 +71,21 @@
     fallback = window.setTimeout(() => complete(), 900);
   };
 
-  try {
-    if (sessionStorage.getItem(coverStateKey) === 'true') {
-      finish();
-      return;
-    }
-  } catch { /* Storage is optional. */ }
+  /* The cover replays on a reload or a fresh visit. It stays away when the reader
+     comes back through the site's own page turn or the browser history: the head
+     script flags that case as `cover-skipped` before the first paint. */
+  const skippedByArrival = document.documentElement.classList.contains('cover-skipped');
+  const arrivedFromHistory = (() => {
+    try {
+      const entry = performance.getEntriesByType('navigation')[0];
+      return entry ? entry.type === 'back_forward' : false;
+    } catch { return false; }
+  })();
+
+  if (skippedByArrival || arrivedFromHistory) {
+    finish();
+    return;
+  }
 
   main.inert = true;
   main.setAttribute('aria-hidden', 'true');

@@ -162,6 +162,13 @@ body.project-page {
 }
 .chapter-heading h2 { color: var(--comic-stock-light); text-shadow: 2px 2px 0 var(--comic-ink); }
 .chapter-heading p { color: var(--comic-stock-light); }
+.spread__index-link {
+  border: var(--comic-line);
+  background-color: var(--deep-petrol);
+  background-image: radial-gradient(rgba(245,238,236,.23) .8px, transparent 1px);
+  background-size: 6px 6px;
+  box-shadow: 5px 5px 0 var(--comic-ink);
+}
 .spread__intro-note {
   border: var(--comic-line);
   border-left-width: 12px;

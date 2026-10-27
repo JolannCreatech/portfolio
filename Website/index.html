@@ -6,6 +6,24 @@
   <meta name="theme-color" content="#020303">
   <meta name="description" content="Jolann Narcisse — engineering, interaction and visual practice in an interactive portfolio.">
   <title>Jolann Narcisse — Portfolio</title>
+  <script>
+    /* The cover only replays on a reload or a fresh visit. The site's own page turn
+       and the browser history mark the arrival so the cover never flashes. */
+    (() => {
+      let skip = false;
+      try {
+        skip = sessionStorage.getItem('portfolio:cover-skip') === 'true';
+        sessionStorage.removeItem('portfolio:cover-skip');
+      } catch { /* Storage is optional. */ }
+      if (!skip) {
+        try {
+          const entry = performance.getEntriesByType('navigation')[0];
+          skip = Boolean(entry) && entry.type === 'back_forward';
+        } catch { /* Navigation timing is optional. */ }
+      }
+      if (skip) document.documentElement.classList.add('cover-skipped');
+    })();
+  </script>
   <link rel="preload" as="image" href="/Website/assets/images/image_loading.jpg" type="image/jpeg">
   <link rel="stylesheet" href="/Website/styles/main.css">
   <script type="module" src="/Website/scripts/main.js"></script>
@@ -105,7 +123,7 @@
         </a>
       </div>
 
-      <div class="tile-row tile-row--three tile-row--collections tile-row--cut">
+      <div class="tile-row tile-row--two tile-row--collections tile-row--cut">
         <a class="story-panel story-panel--landscape story-panel--software" href="/Website/projects/software/index.html" data-expand>
           <span class="story-panel__number">03</span>
           <div class="story-panel__media"><img src="/Website/assets/images/plane-map.jpg" alt="Map view from the aircraft detection project" width="1800" height="1129" loading="lazy"></div>
@@ -124,16 +142,6 @@
             <h3 class="story-panel__title">Hardware</h3>
             <p class="story-panel__desc">Kapsul, Creatruck, a bicycle restoration and a video signal experiment.</p>
             <span class="story-panel__action">See the builds <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-          </div>
-        </a>
-        <a class="story-panel story-panel--landscape story-panel--freetime" href="/Website/projects/free-time/index.html" data-expand>
-          <span class="story-panel__number">05</span>
-          <div class="story-panel__media"><img src="/Website/assets/images/art-dragon.jpg" alt="Illustration of a dragon and tiger surrounding a central geometric form" width="1349" height="1800" loading="lazy"></div>
-          <div class="story-panel__body">
-            <p class="story-panel__label">Drawing · Visual practice</p>
-            <h3 class="story-panel__title">Exploration</h3>
-            <p class="story-panel__desc">A visual archive from outside the engineering projects.</p>
-            <span class="story-panel__action">Open the archive <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
           </div>
         </a>
       </div>

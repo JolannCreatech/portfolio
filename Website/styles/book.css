@@ -24,6 +24,7 @@
 }
 .cover.is-opening .cover__surface { transform: perspective(1500px) rotateY(82deg); }
 .cover.is-dismissed { visibility: hidden; pointer-events: none; }
+.cover-skipped .cover { visibility: hidden; pointer-events: none; }
 .cover__art { position: absolute; inset: 0; width: 100%; height: 100%; }
 .cover__image { width: 100%; height: 100%; object-fit: cover; object-position: center 54%; transform-origin: 55% 75%; transition: transform 760ms cubic-bezier(.7, 0, .25, 1); }
 .cover.is-opening .cover__image { transform: translateX(2.5%) scale(1.08); }
@@ -164,8 +165,10 @@
 .spread__chapters { display: grid; gap: var(--panel-gap); margin-top: var(--panel-gap); }
 .secondary-chapters { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); align-items: stretch; gap: var(--panel-gap); }
 .secondary-chapters > :nth-child(1), .secondary-chapters > :nth-child(2), .secondary-chapters > :nth-child(3) { grid-column: span 4; }
-.spread__index-link { display: flex; justify-content: flex-end; margin-top: .25rem; padding: .7rem 1rem; border: 4px solid var(--near-black); background: var(--deep-petrol); font: 700 var(--fs-sm)/1.2 var(--font-display); text-transform: uppercase; }
-.spread__index-link a { color: var(--warm-white); }
+.spread__index-link { display: flex; justify-content: flex-end; margin-top: .75rem; border: 4px solid var(--near-black); background: var(--deep-petrol); font: 700 clamp(1rem, .55vw + .88rem, 1.35rem)/1.2 var(--font-display); letter-spacing: .04em; text-transform: uppercase; }
+.spread__index-link a { display: block; padding: .95rem 1.5rem; color: var(--warm-white); }
+.spread__index-link:hover, .spread__index-link:focus-within { background: var(--fuchsia); }
+.spread__index-link:hover a, .spread__index-link:focus-within a { color: var(--near-black); }
 
 /* The index pages join their cases into one matrix: a full-width introduction,
    then rows that share straight or slightly angled cuts. */
