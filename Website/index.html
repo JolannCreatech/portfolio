@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#020303">
+  <meta name="description" content="Jolann Narcisse — engineering, interaction and visual practice in an interactive portfolio.">
+  <title>Jolann Narcisse — Portfolio</title>
+  <script>
+    /* The cover only replays on a reload or a fresh visit. The site's own page turn
+       and the browser history mark the arrival so the cover never flashes. */
+    (() => {
+      let skip = false;
+      try {
+        skip = sessionStorage.getItem('portfolio:cover-skip') === 'true';
+        sessionStorage.removeItem('portfolio:cover-skip');
+      } catch { /* Storage is optional. */ }
+      if (!skip) {
+        try {
+          const entry = performance.getEntriesByType('navigation')[0];
+          skip = Boolean(entry) && entry.type === 'back_forward';
+        } catch { /* Navigation timing is optional. */ }
+      }
+      if (skip) document.documentElement.classList.add('cover-skipped');
+    })();
+  </script>
+  <link rel="preload" as="image" href="/Website/assets/images/image_loading.jpg" type="image/jpeg">
+  <link rel="stylesheet" href="/Website/styles/main.css">
+  <script type="module" src="/Website/scripts/main.js"></script>
+</head>
+<body class="home-page">
+  <a class="skip-link" href="#main">Skip to the portfolio</a>
+
+  <section class="cover" id="cover" aria-label="Portfolio opening sequence">
+    <div class="cover__surface">
+      <div class="cover__art">
+        <img class="cover__image" src="/Website/assets/images/image_loading.jpg" alt="Portfolio cover artwork" fetchpriority="high">
+      </div>
+      <div class="cover__topline" aria-hidden="true">
+        <span>Jolann Narcisse · Portfolio</span>
+        <span>Creative technologies / 2026</span>
+      </div>
+      <div class="cover__titleplate">
+        <p class="cover__edition">A practice in making connections</p>
+        <h1 class="cover__title"><span>Jolann</span><span>Narcisse</span></h1>
+        <p class="cover__subtitle">Engineer in Creative Technologies</p>
+      </div>
+      <div class="cover__loader" role="status" aria-live="polite" aria-atomic="true">
+        <div class="cover__loader-heading">
+          <span>First spread · 01</span>
+          <span data-loading-value>00%</span>
+        </div>
+        <p data-loading-label>Preparing the first page</p>
+        <div class="cover__progress" role="progressbar" aria-label="Preparing the portfolio" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <span data-loading-bar></span>
+        </div>
+      </div>
+      <a class="cover__open" href="#main" data-open-book aria-controls="main">
+        Open the book now
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <span class="cover__folio" aria-hidden="true">Issue 01 · Cover</span>
+    </div>
+  </section>
+
+  <nav class="nav" aria-label="Main navigation">
+    <a class="nav__brand" href="/Website/index.html" aria-label="Jolann Narcisse home">
+      <span class="nav__brand-mark" aria-hidden="true">J</span>
+      <span>Jolann Narcisse</span>
+    </a>
+    <ul class="nav__list">
+      <li><a class="nav__link" href="/Website/index.html" aria-current="page">Home</a></li>
+      <li><a class="nav__link" href="/Website/projects/index.html">Projects</a></li>
+      <li><a class="nav__link" href="/Website/about/index.html">About</a></li>
+    </ul>
+  </nav>
+
+  <main id="main" class="spread" tabindex="-1">
+    <section class="home-introduction" aria-label="Introduction">
+      <p class="spread__intro-note">Notes from the workbench · 01</p>
+      <article class="intro-panel">
+        <figure class="intro-panel__portrait">
+          <img src="/Website/assets/images/self-portrait.png" alt="Self-portrait drawing of Jolann Narcisse" width="2310" height="3259" fetchpriority="high">
+          <figcaption class="intro-panel__stamp">Self-portrait · 2026</figcaption>
+        </figure>
+        <div class="intro-panel__copy">
+          <h2>Jolann<br><span>Narcisse</span></h2>
+          <p>Engineer working across software, electronics and interaction design, with a particular interest in technology and product innovation.</p>
+          <a class="text-link" href="/Website/about/index.html">Meet the maker <span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+    </section>
+
+    <div class="tile-mosaic home-mosaic" aria-label="Selected chapters">
+      <div class="tile-row tile-row--two tile-row--features tile-row--cut">
+        <a class="story-panel story-panel--feature" href="/Website/projects/between-threads/index.html" data-expand>
+          <span class="story-panel__number">01</span>
+          <div class="story-panel__media">
+            <img src="/Website/assets/images/between-stage.jpg" alt="Tangible puppet theatre and its connected virtual scene" width="1800" height="1350" fetchpriority="high">
+          </div>
+          <div class="story-panel__body">
+            <p class="story-panel__label">Physical computing · Computer vision · 2026</p>
+            <h3 class="story-panel__title">Between Threads</h3>
+            <p class="story-panel__desc">A tangible puppet theatre connects hand movement, servomotors and a virtual stage.</p>
+            <span class="story-panel__action">Read the project <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </a>
+
+        <a class="story-panel story-panel--feature" href="/Website/projects/whisper/index.html" data-expand>
+          <span class="story-panel__number">02</span>
+          <div class="story-panel__media">
+            <div class="project-placeholder">
+              <span class="project-placeholder__label">whisPER interface</span>
+              <span class="project-placeholder__note">Screenshot to be added</span>
+            </div>
+          </div>
+          <div class="story-panel__body">
+            <p class="story-panel__label">End-to-end encryption · Self-hosted</p>
+            <h3 class="story-panel__title">whisPER</h3>
+            <p class="story-panel__desc">An end-to-end encrypted messaging application, self-hosted on a Raspberry Pi.</p>
+            <span class="story-panel__action">Read the project <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </a>
+      </div>
+
+      <div class="tile-row tile-row--two tile-row--collections tile-row--cut">
+        <a class="story-panel story-panel--landscape story-panel--software" href="/Website/projects/software/index.html" data-expand>
+          <span class="story-panel__number">03</span>
+          <div class="story-panel__media"><img src="/Website/assets/images/plane-map.jpg" alt="Map view from the aircraft detection project" width="1800" height="1129" loading="lazy"></div>
+          <div class="story-panel__body">
+            <p class="story-panel__label">Code · Sensing · Interaction</p>
+            <h3 class="story-panel__title">Software</h3>
+            <p class="story-panel__desc">Small experiments in computer vision, sensing and playful interfaces.</p>
+            <span class="story-panel__action">Browse experiments <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </a>
+        <a class="story-panel story-panel--landscape story-panel--hardware" href="/Website/projects/hardware/index.html" data-expand>
+          <span class="story-panel__number">04</span>
+          <div class="story-panel__media"><img src="/Website/assets/images/truck-car.jpg" alt="Remote-controlled car prototype built from fabricated parts" width="1800" height="926" loading="lazy"></div>
+          <div class="story-panel__body">
+            <p class="story-panel__label">Fabrication · Electronics</p>
+            <h3 class="story-panel__title">Hardware</h3>
+            <p class="story-panel__desc">Kapsul, Creatruck, a bicycle restoration and a video signal experiment.</p>
+            <span class="story-panel__action">See the builds <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <p class="spread__index-link"><a href="/Website/projects/index.html">Browse all projects &nbsp;↗</a></p>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="footer__content">
+      <div class="footer__brand"><span>Jolann</span><span>Narcisse</span></div>
+      <p class="footer__note">Engineer in Creative Technologies<br>Puteaux, France</p>
+      <nav aria-label="Footer navigation"><ul class="footer__nav">
+        <li><a href="/Website/projects/index.html">Projects</a></li>
+        <li><a href="/Website/about/index.html">About</a></li>
+        <li><a href="mailto:narcisse.jolann@gmail.com">Email</a></li>
+      </ul></nav>
+    </div>
+    <p class="footer__copyright">© Jolann Narcisse</p>
+  </footer>
+</body>
+</html>
