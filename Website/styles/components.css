@@ -227,6 +227,7 @@
 .story-panel__media img, .panel__media img, .project-figure__media img,
 .visual-gallery img, .visual-archive figure img, .about-opening__portrait img,
 .intro-panel__portrait img, .timeline figure img, .free-time-spread__lead img { cursor: zoom-in; }
+a[href] img { cursor: pointer; }
 .lightbox { position: fixed; z-index: 3500; inset: 0; display: flex; align-items: center; justify-content: center; padding: clamp(1rem, 4vw, 2.5rem); }
 .lightbox[hidden] { display: none; }
 .lightbox__backdrop { position: absolute; inset: 0; background: rgba(2, 3, 3, .9); }

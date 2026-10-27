@@ -60,6 +60,8 @@ function labelFor(img) {
 
 function collect() {
   images = [...document.querySelectorAll(FRAME_SELECTORS)]
+    // Images wrapped in a link are navigation thumbnails: the link must win.
+    .filter((img) => !img.closest('a[href]'))
     // Keep the narrow portrait strip clickable even when its thumbnails are under 120px wide.
     .filter((img) => (img.width > 120 && img.height > 120) || img.closest('.visual-gallery--experiments'));
   const multiple = images.length > 1;
@@ -140,7 +142,6 @@ function step(delta) {
 document.addEventListener('click', (event) => {
   const img = event.target.closest ? event.target.closest('img[data-lightbox-index]') : null;
   if (!img) return;
-  // Photo cards inside <a> must open the lightbox, not navigate.
   event.preventDefault();
   event.stopPropagation();
   open(Number(img.dataset.lightboxIndex), img);
