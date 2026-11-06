@@ -73,7 +73,7 @@
   .about-contact > .eyebrow { grid-column: 1 / -1; }
   .about-contact > h2, .about-contact__links { grid-column: 1 / -1; }
   .visual-gallery figure { grid-column: 1 / -1; }
-  .visual-gallery--drawing figure:first-child, .visual-gallery--moodboards figure:last-child { margin-top: 0; }
+  .visual-gallery--drawing figure:first-child, .visual-gallery--identity figure:last-child { margin-top: 0; }
   .footer__content { display: grid; grid-template-columns: 1fr 1fr; }
   .footer__nav { grid-column: 1 / -1; justify-content: flex-start; }
 }
