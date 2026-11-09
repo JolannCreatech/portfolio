@@ -209,7 +209,7 @@ body.project-page {
   position: static;
   z-index: 1;
   align-self: end;
-  width: clamp(310px, 42vw, 660px);
+  width: clamp(300px, 40vw, 640px);
   height: auto;
   margin: 0;
   padding: 0;
@@ -301,7 +301,7 @@ body.project-page {
   .home-introduction .intro-panel__portrait {
     justify-self: center;
     align-self: start;
-    width: min(100%, 500px);
+    width: min(100%, 480px);
   }
   .home-introduction .intro-panel__copy {
     justify-self: stretch;
