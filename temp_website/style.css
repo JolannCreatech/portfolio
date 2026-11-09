@@ -29,7 +29,7 @@
   position: static;
   z-index: 1;
   align-self: end;
-  width: clamp(320px, 44vw, 680px);
+  width: clamp(310px, 42vw, 660px);
   height: auto;
   margin: 0;
   padding: 0;
