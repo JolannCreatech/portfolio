@@ -29,7 +29,7 @@
   position: static;
   z-index: 1;
   align-self: end;
-  width: clamp(210px, 29vw, 430px);
+  width: clamp(340px, 50vw, 760px);
   height: auto;
   margin: 0;
   padding: 0;
@@ -37,7 +37,7 @@
   background: none;
   box-shadow: none;
   overflow: visible;
-  aspect-ratio: 2310 / 3259;
+  aspect-ratio: 2400 / 3800;
 }
 .home-introduction .intro-panel__portrait img {
   position: static;

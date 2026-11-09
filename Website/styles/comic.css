@@ -209,7 +209,7 @@ body.project-page {
   position: static;
   z-index: 1;
   align-self: end;
-  width: clamp(210px, 29vw, 430px);
+  width: clamp(340px, 50vw, 760px);
   height: auto;
   margin: 0;
   padding: 0;
@@ -217,7 +217,7 @@ body.project-page {
   background: none;
   box-shadow: none;
   overflow: visible;
-  aspect-ratio: 2310 / 3259;
+  aspect-ratio: 2400 / 3800;
 }
 .home-introduction .intro-panel__portrait img {
   position: static;
@@ -301,7 +301,7 @@ body.project-page {
   .home-introduction .intro-panel__portrait {
     justify-self: center;
     align-self: start;
-    width: min(100%, 360px);
+    width: min(100%, 580px);
   }
   .home-introduction .intro-panel__copy {
     justify-self: stretch;
@@ -344,6 +344,8 @@ body.project-page {
   transition: transform 260ms cubic-bezier(.18,.78,.2,1), filter 220ms ease;
 }
 .tile-mosaic .story-panel .story-panel__media { border-bottom: var(--comic-line); }
+/* TIN MAN’s heart fills its case edge to edge: no inner divider around the gif. */
+.tile-mosaic .story-panel--tinman .story-panel__media { border-bottom: 0; }
 .tile-mosaic .story-panel .story-panel__body { background-color: var(--comic-stock-light); }
 .tile-mosaic .story-panel .story-panel__number { top: 10px; left: 10px; }
 .tile-mosaic .story-panel--feature .story-panel__media { height: clamp(280px, 24vw, 400px); }
@@ -459,6 +461,9 @@ html.has-panel-motion .tile-mosaic .comic-reveal.story-panel:focus-visible { tra
 }
 .project-panel--hero { padding: 6px; }
 .project-panel--hero .project-figure__media { border: 3px solid var(--comic-ink); }
+/* The Tin Man illustration runs edge to edge inside its case. */
+.project-panel--hero.project-panel--tinman { padding: 0; }
+.project-panel--hero.project-panel--tinman .project-figure__media { border: 0; }
 .project-figure__caption {
   border-top: 3px solid var(--comic-ink);
   padding: .65rem .75rem;
