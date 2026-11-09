@@ -65,7 +65,7 @@
 .story-panel--landscape .story-panel__media { min-height: 205px; flex: 0 0 auto; height: clamp(205px, 18.5vw, 300px); }
 .story-panel--landscape .story-panel__body { min-height: 185px; flex: 1 1 auto; }
 /* The Tin Man illustration is drawn with wide paper margins: zoom into the art. */
-.story-panel--tinman .story-panel__media { --media-zoom: 1.7; --media-origin: 52% 50%; }
+.story-panel--tinman .story-panel__media { --media-zoom: 1.5; --media-origin: 52% 50%; }
 .story-panel.is-prominent { border-color: var(--fuchsia); }
 .story-panel:hover, .story-panel:focus-visible, .panel:hover, .panel:focus-visible { z-index: 2; border-color: var(--fuchsia); }
 .story-panel:hover .story-panel__media img, .story-panel:focus-visible .story-panel__media img, .panel:hover .panel__media img, .panel:focus-visible .panel__media img { transform: scale(calc(var(--media-zoom, 1) * 1.015)); }
@@ -92,7 +92,7 @@
 .project-panel--hero { display: flex; flex-direction: column; padding: 5px; }
 .project-panel--hero .project-figure__media { width: 100%; min-height: 280px; aspect-ratio: 4 / 3; flex: 1 1 auto; overflow: hidden; background: var(--deep-petrol); }
 .project-panel--hero .project-figure__media img { width: 100%; height: 100%; object-fit: cover; object-position: center 55%; transform: scale(var(--media-zoom, 1)); transform-origin: var(--media-origin, center); }
-.project-panel--tinman .project-figure__media { --media-zoom: 1.55; --media-origin: 52% 50%; }
+.project-panel--tinman .project-figure__media { --media-zoom: 1.3; --media-origin: 52% 50%; }
 .project-figure__media, .project-figure { min-width: 0; }
 .project-figure__media { overflow: hidden; background: var(--deep-petrol); }
 .story-panel__media picture, .project-figure__media picture { display: block; width: 100%; height: 100%; }
